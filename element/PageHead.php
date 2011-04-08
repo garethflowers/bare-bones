@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Page
- * @author Gareth Flowers (gareth@garethflowers.com)
+ * PageHead
+ * @author Gareth Flowers <gareth@garethflowers.com>
  * @version 0.1
  */
-class Head
+class PageHead implements IRenderable
 {
 
     private $template;
@@ -18,7 +18,6 @@ class Head
 
     /**
      * create new instance of the Page class
-     * @param string $template
      */
     public function __construct()
     {
@@ -190,6 +189,13 @@ class Head
         return $html;
     }
 
+    /**
+     *
+     * @param string $name
+     * @param string $content
+     * @param string $httpequiv
+     * @return string
+     */
     private function renderMeta( $name, $content, $httpequiv )
     {
         $html = '<meta';

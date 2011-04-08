@@ -2,11 +2,12 @@
 
 /**
  * Email Class
- * @author Gareth Flowers (gareth@garethflowers.com)
+ * @author Gareth Flowers <gareth@garethflowers.com>
  * @version 0.1
  */
 class Email
 {
+
     const EOL = "\n";
 
     /**

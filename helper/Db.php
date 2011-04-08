@@ -1,8 +1,14 @@
 <?php
 
 /**
+ * define types for use with Db class
+ */
+define( 'DB_TYPE_PGSQL', 'PGSQL' );
+define( 'DB_TYPE_MYSQL', 'MYSQL' );
+
+/**
  * Database Class
- * @author Gareth Flowers (gareth@garethflowers.com)
+ * @author Gareth Flowers <gareth@garethflowers.com>
  * @version 0.3
  */
 class Db
@@ -18,7 +24,7 @@ class Db
 
     /**
      * create a new instance of the Database class
-     * @param string $type one of: mysql, pgsql
+     * @param constant $type one of: DB_TYPE_MYSQL, DB_TYPE_PGSQL
      * @param string $server
      * @param string $username
      * @param string $password
@@ -36,10 +42,10 @@ class Db
 
         switch ( $this->type )
         {
-            case 'mysql':
+            case DB_TYPE_MYSQL:
                 $this->connection = mysql_connect( $server, $username, $password );
                 break;
-            case 'pgsql':
+            case DB_TYPE_PGSQL:
                 $conn = 'host=' . $this->server . ' dbname=' . $this->database . ' user=' . $this->username . ' password=' . $this->password;
                 $this->connection = pg_connect( $conn );
                 break;
@@ -135,7 +141,7 @@ class Db
             switch ( $this->type )
             {
                 case 'mysql':
-                    while ( ( $data[ ] = mysql_fetch_assoc( $result ) ) || array_pop( $data )
+                    while ( ( $data[] = mysql_fetch_assoc( $result ) ) || array_pop( $data )
 
                         );
                     break;

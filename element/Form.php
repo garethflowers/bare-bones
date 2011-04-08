@@ -1,38 +1,24 @@
 <?php
 
 /**
- * Form Class
- * @author Gareth Flowers (gareth@garethflowers.com)
+ * Form
+ * @author Gareth Flowers <gareth@garethflowers.com>
  * @version 0.1
  */
-class Form
+class Form extends ContainerElement
 {
 
-    private $method;
-    private $action;
-    private $name;
-    private $content;
-
-    public function __construct( $name, $method, $action, $content = '' )
+    public function __construct( $name, $method, $action )
     {
-        $this->method = $method;
-        $this->action = $action;
-        $this->name = $name;
-        $this->content = $content;
+        parent::__construct( 'form' );
+        $this->setAttribute( 'name', $name );
+        $this->setAttribute( 'action', $action );
+        $this->setAttribute( 'method', $method );
     }
 
-    public function Render()
+    public function setName( $value )
     {
-        $html = '<form name="' . $this->name . '" action="' . $this->action . '" method="' . $this->method . '">';
-        $html .= $this->content;
-        $html .= '</form>';
-
-        return $html;
-    }
-
-    public function AddContent( $content )
-    {
-        $this->content .= $content;
+        $this->setAttribute( 'name', $value );
     }
 
     public static function Label( $name, $for )
