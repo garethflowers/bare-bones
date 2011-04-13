@@ -8,16 +8,32 @@
 class Page extends ContainerElement
 {
 
+    /**
+     *
+     * @var ContainerElement
+     */
+    public $header;
+    /**
+     *
+     * @var ContainerElement
+     */
+    public $footer;
+    /**
+     *
+     * @var PageHead
+     */
     protected $head;
 
     /**
      * create new instance of the Page class
      * @param string $template
      */
-    public function __construct( $template = null )
+    public function __construct( $template = NULL )
     {
-        parent::__construct( 'body' );
+        parent::__construct( 'body', NULL, NULL, NULL );
         $this->head = new PageHead();
+        $this->header = new ContainerElement( 'header', NULL, NULL, NULL );
+        $this->footer = new ContainerElement( 'footer', NULL, NULL, NULL );
     }
 
     /**
@@ -58,8 +74,7 @@ class Page extends ContainerElement
         $html .= $this->head->render();
         $html .= parent::render();
         $html .= '</html>';
-
-        echo $html;
+        return $html;
     }
 
 }

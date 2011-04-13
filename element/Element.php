@@ -15,7 +15,7 @@ class Element implements IRenderable
      *
      * @param string $tag
      */
-    public function __construct( $tag, $id = NULL, $class = NULL )
+    public function __construct( $tag, $id, $class )
     {
         $this->tag = $tag;
         $this->attributes = array( );

@@ -17,7 +17,7 @@ class ContainerElement extends Element
      * initiate a new ContainerElement
      * @param string $tag
      */
-    public function __construct( $tag, $id = NULL, $class = NULL, $content = NULL )
+    public function __construct( $tag, $id, $class, $content )
     {
         parent::__construct( $tag, $id, $class );
         $this->content = array( );
