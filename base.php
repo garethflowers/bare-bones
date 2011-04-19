@@ -29,6 +29,7 @@ require_once( 'helper/Validation.php' );
 
 require_once( 'element/Element.php' );
 require_once( 'element/ContainerElement.php' );
+require_once( 'element/H.php' );
 require_once( 'element/Link.php' );
 require_once( 'element/Page.php' );
 require_once( 'element/PageHead.php' );
