@@ -20,6 +20,8 @@ $_SERVER['REQUEST_URI'] = strtolower( str_replace( 'index.php', '', $_SERVER['RE
 require_once('interfaces/IRenderable.php');
 
 require_once( 'helper/Db.php' );
+require_once( 'helper/MySqlDb.php' );
+require_once( 'helper/PgSqlDb.php' );
 require_once( 'helper/Email.php' );
 require_once( 'helper/BrowserDetect.php' );
 require_once( 'helper/SiteMap.php' );
