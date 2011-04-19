@@ -18,6 +18,7 @@ $_SERVER['REQUEST_URI'] = strtolower( str_replace( 'index.php', '', $_SERVER['RE
 
 // include required files
 require_once('interfaces/IRenderable.php');
+require_once('interfaces/IDbConnection.php');
 
 require_once( 'helper/Db.php' );
 require_once( 'helper/MySqlDb.php' );
