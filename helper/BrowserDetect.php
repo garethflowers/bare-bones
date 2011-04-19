@@ -71,7 +71,7 @@ class BrowserDetect
                 break;
         }
 
-        return array( $mobile_browser, $status );
+        return $mobile_browser;
     }
 
 }
