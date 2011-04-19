@@ -30,7 +30,7 @@ class Page extends ContainerElement
      */
     public function __construct( $template = NULL )
     {
-        parent::__construct( 'body', NULL, NULL, NULL );
+        parent::__construct( 'div', 'content', NULL, NULL );
         $this->head = new PageHead();
         $this->header = new ContainerElement( 'header', NULL, NULL, NULL );
         $this->footer = new ContainerElement( 'footer', NULL, NULL, NULL );
@@ -71,8 +71,17 @@ class Page extends ContainerElement
     {
         $html = '<!DOCTYPE html>';
         $html .= '<html lang="en">';
+
         $html .= $this->head->render();
+
+        $html .= '<body>';
+        $html .= '<div id="body">';
+        $html .= $this->header->render();
         $html .= parent::render();
+        $html .= $this->footer->render();
+        $html .= '</div>';
+        $html .= '</body>';
+
         $html .= '</html>';
         return $html;
     }
