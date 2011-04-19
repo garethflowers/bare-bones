@@ -23,6 +23,7 @@ require_once('interfaces/IDbConnection.php');
 require_once( 'helper/Db.php' );
 require_once( 'helper/MySqlDb.php' );
 require_once( 'helper/PgSqlDb.php' );
+require_once( 'helper/Curl.php' );
 require_once( 'helper/Email.php' );
 require_once( 'helper/BrowserDetect.php' );
 require_once( 'helper/SiteMap.php' );
