@@ -16,6 +16,9 @@ class ContainerElement extends Element
     /**
      * initiate a new ContainerElement
      * @param string $tag
+     * @param string $id
+     * @param string $class
+     * @param mixed $content
      */
     public function __construct( $tag, $id, $class, $content )
     {
@@ -25,12 +28,20 @@ class ContainerElement extends Element
     }
 
     /**
-     * 
+     * get Content
      * @return mixed[]
      */
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * clears the content
+     */
+    public function clearContent()
+    {
+        $this->content = array( );
     }
 
     /**
@@ -85,6 +96,11 @@ class ContainerElement extends Element
      */
     public function render()
     {
+        if ( !$this->hasAttributes() && !$this->hasContent() )
+        {
+            return '';
+        }
+
         $result = '<' . $this->tag;
 
         foreach ( $this->attributes as $attribute => $value )
@@ -98,7 +114,14 @@ class ContainerElement extends Element
 
             foreach ( $this->content as $content )
             {
-                $result .= $content;
+                if ( $content instanceof ContainerElement )
+                {
+                    $result .= $content->render();
+                }
+                else
+                {
+                    $result .= $content;
+                }
             }
 
             $result .= '</' . $this->tag . '>';

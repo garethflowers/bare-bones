@@ -149,6 +149,11 @@ class Element implements IRenderable
      */
     public function render()
     {
+        if ( !$this->hasAttributes() )
+        {
+            return '';
+        }
+
         $result = '<' . $this->tag;
 
         foreach ( $this->attributes as $attribute => $value )
