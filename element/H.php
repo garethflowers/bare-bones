@@ -3,7 +3,6 @@
 /**
  * Div
  * @author Gareth Flowers <gareth@garethflowers.com>
- * @version 0.1
  */
 class H extends ContainerElement
 {
