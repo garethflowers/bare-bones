@@ -17,8 +17,8 @@ $_SERVER['REQUEST_URI'] = strtolower( str_replace( 'index.php', '', $_SERVER['RE
 
 
 // include required files
-require_once('interfaces/IRenderable.php');
-require_once('interfaces/IDbConnection.php');
+require_once( 'interfaces/IRenderable.php' );
+require_once( 'interfaces/IDbConnection.php' );
 
 require_once( 'helper/Db.php' );
 require_once( 'helper/MySqlDb.php' );
@@ -38,12 +38,9 @@ require_once( 'element/PageHead.php' );
 require_once( 'element/Form.php' );
 require_once( 'element/Div.php' );
 require_once( 'element/Image.php' );
-
-require_once( 'html/JavaScript.php' );
+require_once( 'element/JScript.php' );
 
 // browser detection
-$browser = BrowserDetect::IsMobile();
-define( 'IS_MOBILE', $browser[0] );
-define( 'PLATFORM', $browser[1] );
+define( 'IS_MOBILE', BrowserDetect::IsMobile() );
 
 ?>
