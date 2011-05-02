@@ -2,7 +2,7 @@
 
 /**
  * Base Web Loader
- * @author gareth flowers
+ * @author garethflowers
  */
 // show any errors
 error_reporting( E_ALL );
@@ -25,7 +25,6 @@ require_once( 'helper/MySqlDb.php' );
 require_once( 'helper/PgSqlDb.php' );
 require_once( 'helper/Curl.php' );
 require_once( 'helper/Email.php' );
-require_once( 'helper/BrowserDetect.php' );
 require_once( 'helper/SiteMap.php' );
 require_once( 'helper/Validation.php' );
 
@@ -39,8 +38,5 @@ require_once( 'element/Form.php' );
 require_once( 'element/Div.php' );
 require_once( 'element/Image.php' );
 require_once( 'element/JScript.php' );
-
-// browser detection
-define( 'IS_MOBILE', BrowserDetect::IsMobile() );
 
 ?>
