@@ -2,7 +2,7 @@
 
 /**
  * ContainerElement
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class ContainerElement extends Element
 {
@@ -91,7 +91,7 @@ class ContainerElement extends Element
 
     /**
      * renders the element
-     * @return string 
+     * @return string
      */
     public function render()
     {
@@ -107,28 +107,21 @@ class ContainerElement extends Element
             $result .= ' ' . $attribute . '="' . $value . '"';
         }
 
-        if ( $this->hasContent() )
-        {
-            $result .= '>';
+        $result .= '>';
 
-            foreach ( $this->content as $content )
+        foreach ( $this->content as $content )
+        {
+            if ( $content instanceof ContainerElement )
             {
-                if ( $content instanceof ContainerElement )
-                {
-                    $result .= $content->render();
-                }
-                else
-                {
-                    $result .= $content;
-                }
+                $result .= $content->render();
             }
+            else
+            {
+                $result .= $content;
+            }
+        }
 
-            $result .= '</' . $this->tag . '>';
-        }
-        else
-        {
-            $result .= ' />';
-        }
+        $result .= '</' . $this->tag . '>';
 
         return $result;
     }
