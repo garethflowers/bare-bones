@@ -4,7 +4,7 @@
  * Div
  * @author garethflowers
  */
-class H extends ContainerElement
+class Header extends ContainerElement
 {
 
     public function __construct( $level, $id = NULL, $class = NULL, $content = NULL )
