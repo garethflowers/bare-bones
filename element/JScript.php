@@ -2,15 +2,30 @@
 
 /**
  * JScript
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class JScript extends ContainerElement
 {
 
-    public function __construct( $id = NULL, $class=NULL, $content = NULL )
+    private $domready;
+
+    public function __construct( $domready, $content = NULL )
     {
-        parent::__construct( 'script', $id, $class, $content );
+        parent::__construct( 'script', NULL, NULL, $content );
         $this->setAttribute( 'type', 'text/javascript' );
+        $this->domready = (bool) $domready;
+    }
+
+    public function render()
+    {
+        if ( $this->domready )
+        {
+            $content = array_merge( array( 'window.addEvent(\'domready\',function(){' ), $this->getContent() );
+            $content[] = '});';
+            $this->setContent( $content );
+        }
+
+        return parent::render();
     }
 
 }
