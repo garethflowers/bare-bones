@@ -2,7 +2,7 @@
 
 /**
  * MySQL Database Connection
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class MySqlDb extends Db implements IDbConnection
 {

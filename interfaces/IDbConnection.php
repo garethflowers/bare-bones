@@ -2,7 +2,7 @@
 
 /**
  * IDbConnection
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 interface IDbConnection
 {

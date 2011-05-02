@@ -2,7 +2,7 @@
 
 /**
  * PageHead
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class PageHead implements IRenderable
 {
@@ -27,7 +27,8 @@ class PageHead implements IRenderable
         $this->script = array( );
         $this->keyword = array( );
 
-        $this->addMeta( 'viewport', 'width=device-width', '' );
+        $this->addMeta( 'handheldfriendly', 'true', '' );
+        $this->addMeta( 'viewport', 'width=device-width,height=device-height,user-scalable=no,initial-scale=0.5', '' );
 
         if ( !empty( $this->template ) )
         {
@@ -156,6 +157,11 @@ class PageHead implements IRenderable
     {
         $html = '<head>';
         $html .= '<meta charset="utf-8" />';
+
+        if ( count( $this->keyword ) > 0 )
+        {
+            $this->AddMeta( 'keyword', implode( ', ', $this->keyword ), '' );
+        }
 
         if ( !empty( $this->title ) )
         {

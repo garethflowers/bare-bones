@@ -2,7 +2,7 @@
 
 /**
  * Page
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Page extends ContainerElement
 {
@@ -21,7 +21,7 @@ class Page extends ContainerElement
      *
      * @var PageHead
      */
-    protected $head;
+    public $head;
 
     /**
      * create new instance of the Page class
@@ -70,9 +70,7 @@ class Page extends ContainerElement
     {
         $html = '<!DOCTYPE html>';
         $html .= '<html lang="en">';
-
         $html .= $this->head->render();
-
         $html .= '<body>';
         $html .= '<div id="body">';
         $html .= $this->header->render();
@@ -80,7 +78,6 @@ class Page extends ContainerElement
         $html .= $this->footer->render();
         $html .= '</div>';
         $html .= '</body>';
-
         $html .= '</html>';
         return $html;
     }

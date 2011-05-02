@@ -2,7 +2,7 @@
 
 /**
  * Form
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Form extends ContainerElement
 {

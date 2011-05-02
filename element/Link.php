@@ -2,7 +2,7 @@
 
 /**
  * Link
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Link extends ContainerElement
 {

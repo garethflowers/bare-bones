@@ -2,7 +2,7 @@
 
 /**
  * Thumbnail Image Generator
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class ThumbNail
 {

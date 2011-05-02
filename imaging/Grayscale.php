@@ -2,7 +2,7 @@
 
 /**
  * Grayscale Image Generator
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Grayscale implements IRenderable
 {

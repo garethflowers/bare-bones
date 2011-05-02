@@ -2,7 +2,7 @@
 
 /**
  * Element
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Element implements IRenderable
 {
@@ -144,7 +144,7 @@ class Element implements IRenderable
 
     /**
      *
-     * @return string 
+     * @return string
      */
     public function render()
     {

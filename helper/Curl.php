@@ -1,9 +1,8 @@
 <?php
 
 /*
- *  Curl
- *
- * @author gareth flowers
+ * Curl Class
+ * @author garethflowers
  */
 
 class Curl
@@ -24,7 +23,7 @@ class Curl
 
         if ( !$result = curl_exec( $ch ) )
         {
-            trigger_error( curl_error( $ch ) );
+            $result = NULL;
         }
 
         curl_close( $ch );

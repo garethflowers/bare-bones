@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Db
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * Db Class
+ * @author garethflowers
  */
 class Db
 {

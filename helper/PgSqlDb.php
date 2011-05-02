@@ -2,7 +2,7 @@
 
 /**
  * PostgreSQL Database Connection
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class PgSqlDb Extends Db implements IDbConnection
 {

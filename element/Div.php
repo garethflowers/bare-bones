@@ -2,7 +2,7 @@
 
 /**
  * Div
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Div extends ContainerElement
 {

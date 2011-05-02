@@ -2,7 +2,7 @@
 
 /**
  * Validation
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Validation
 {

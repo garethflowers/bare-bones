@@ -2,7 +2,7 @@
 
 /**
  * IRenderable
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 interface IRenderable
 {

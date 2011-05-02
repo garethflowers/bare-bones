@@ -2,7 +2,7 @@
 
 /**
  * Email Class
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Email
 {

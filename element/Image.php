@@ -2,7 +2,7 @@
 
 /**
  * Image
- * @author Gareth Flowers <gareth@garethflowers.com>
+ * @author garethflowers
  */
 class Image extends Element
 {
