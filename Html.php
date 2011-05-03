@@ -4,7 +4,7 @@
  * Element
  * @author garethflowers
  */
-class Element implements IRenderable
+abstract class Html implements IRenderable
 {
 
     protected $tag;

@@ -28,15 +28,17 @@ require_once( 'helper/Email.php' );
 require_once( 'helper/SiteMap.php' );
 require_once( 'helper/Validation.php' );
 
-require_once( 'element/Element.php' );
-require_once( 'element/ContainerElement.php' );
-require_once( 'element/Header.php' );
-require_once( 'element/Link.php' );
-require_once( 'element/Page.php' );
-require_once( 'element/PageHead.php' );
-require_once( 'element/Form.php' );
-require_once( 'element/Div.php' );
-require_once( 'element/Image.php' );
-require_once( 'element/JScript.php' );
+require_once( 'Html.php' );
+require_once( 'html/ContainerAbstract.php' );
+require_once( 'html/H.php' );
+require_once( 'html/Link.php' );
+require_once( 'html/Header.php' );
+require_once( 'html/Footer.php' );
+require_once( 'html/PageHead.php' );
+require_once( 'html/Form.php' );
+require_once( 'html/Div.php' );
+require_once( 'html/Image.php' );
+require_once( 'html/JScript.php' );
+require_once( 'html/Page.php' );
 
 ?>
