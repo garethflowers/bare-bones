@@ -4,35 +4,19 @@
  * Page
  * @author garethflowers
  */
-class Page extends Html_Container
+class HtmlPage extends HtmlContainer
 {
 
-    /**
-     *
-     * @var Container
-     */
     public $header;
-    /**
-     *
-     * @var Container
-     */
     public $footer;
-    /**
-     *
-     * @var PageHead
-     */
     public $head;
 
-    /**
-     * create new instance of the Page class
-     * @param string $template
-     */
-    public function __construct( $template = NULL )
+    public function __construct()
     {
-        parent::__construct( 'div', 'content', NULL, NULL );
-        $this->head = new PageHead();
-        $this->header = new Header();
-        $this->footer = new Footer();
+        parent::__construct( 'div' );
+        $this->head = new HtmlHead();
+        $this->header = new HtmlHeader();
+        $this->footer = new HtmlFooter();
     }
 
     /**
@@ -41,7 +25,7 @@ class Page extends Html_Container
      */
     public function setTitle( $title )
     {
-        $this->head->setTitle( $title );
+        $this->head->setTitle( trim( strval( $title ) ) );
     }
 
     /**
@@ -83,5 +67,3 @@ class Page extends Html_Container
     }
 
 }
-
-?>

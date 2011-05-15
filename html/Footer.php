@@ -4,14 +4,12 @@
  * Div
  * @author garethflowers
  */
-class Footer extends Html_Container
+class HtmlFooter extends HtmlContainer
 {
 
-    public function __construct( $id = NULL, $class=NULL, $content = NULL )
+    public function __construct()
     {
-        parent::__construct( 'footer', $id, $class, $content );
+        parent::__construct( 'footer' );
     }
 
 }
-
-?>

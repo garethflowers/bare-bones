@@ -4,7 +4,7 @@
  * Grayscale Image Generator
  * @author garethflowers
  */
-class Grayscale implements IRenderable
+class ImagingGrayscale implements IRenderable
 {
 
     private $path;

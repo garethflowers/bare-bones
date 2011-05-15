@@ -1,29 +1,38 @@
 <?php
 
 /**
- * Link
+ * HtmlLink
  * @author garethflowers
  */
-class Link extends Html_Container
+class HtmlLink extends HtmlContainer
 {
 
-    public function __construct( $id, $class, $href, $content )
+    /**
+     *
+     * @param type $link
+     */
+    public function __construct( $link = NULL )
     {
-        parent::__construct( 'a', $id, $class, $content );
-        $this->setHref( $href );
-        $this->setContent( $content );
+        parent::__construct( 'a' );
+        $this->setLink( $link );
     }
 
-    public function setHref( $value )
+    /**
+     *
+     * @param string $link
+     */
+    public function setLink( $link )
     {
-        if ( !isset( $value ) )
+        if ( isset( $link ) )
         {
-            $value = '';
+            $link = trim( strval( $link ) );
+        }
+        else
+        {
+            $link = '#';
         }
 
-        $this->setAttribute( 'href', $value );
+        $this->setAttribute( 'href', $link );
     }
 
 }
-
-?>

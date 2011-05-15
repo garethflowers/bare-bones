@@ -4,12 +4,12 @@
  * Div
  * @author garethflowers
  */
-class Header extends Html_Container
+class HtmlHeader extends HtmlContainer
 {
 
-    public function __construct( $id = NULL, $class=NULL, $content = NULL )
+    public function __construct()
     {
-        parent::__construct( 'header', $id, $class, $content );
+        parent::__construct( 'header' );
     }
 
 }

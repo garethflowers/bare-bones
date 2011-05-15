@@ -1,15 +1,15 @@
 <?php
 
 /**
- * HtmlDiv
+ * HtmlSpan
  * @author garethflowers
  */
-class HtmlDiv extends HtmlContainer
+class HtmlSpan extends HtmlContainer
 {
 
     public function __construct()
     {
-        parent::__construct( 'div' );
+        parent::__construct( 'span' );
     }
 
 }

@@ -17,28 +17,29 @@ $_SERVER['REQUEST_URI'] = strtolower( str_replace( 'index.php', '', $_SERVER['RE
 
 
 // include required files
-require_once( 'interfaces/IRenderable.php' );
-require_once( 'interfaces/IDbConnection.php' );
+require_once( 'config.php' );
 
-require_once( 'helper/Db.php' );
-require_once( 'helper/MySqlDb.php' );
-require_once( 'helper/PgSqlDb.php' );
-require_once( 'helper/Curl.php' );
-require_once( 'helper/Email.php' );
-require_once( 'helper/SiteMap.php' );
-require_once( 'helper/Validation.php' );
+require_once( 'interfaces/irenderable.php' );
+require_once( 'interfaces/idbconnection.php' );
 
-require_once( 'Html.php' );
-require_once( 'html/ContainerAbstract.php' );
-require_once( 'html/H.php' );
-require_once( 'html/Link.php' );
-require_once( 'html/Header.php' );
-require_once( 'html/Footer.php' );
-require_once( 'html/PageHead.php' );
-require_once( 'html/Form.php' );
-require_once( 'html/Div.php' );
-require_once( 'html/Image.php' );
-require_once( 'html/JScript.php' );
-require_once( 'html/Page.php' );
+require_once( 'db/mysqldb.php' );
+require_once( 'db/pgsqldb.php' );
 
+require_once( 'helper/curl.php' );
+require_once( 'helper/email.php' );
+require_once( 'helper/sitemap.php' );
+require_once( 'helper/validation.php' );
+
+require_once( 'html/html.php' );
+require_once( 'html/container.php' );
+require_once( 'html/title.php' );
+require_once( 'html/link.php' );
+require_once( 'html/header.php' );
+require_once( 'html/footer.php' );
+require_once( 'html/head.php' );
+require_once( 'html/form.php' );
+require_once( 'html/div.php' );
+require_once( 'html/image.php' );
+require_once( 'html/script.php' );
+require_once( 'html/page.php' );
 ?>

@@ -4,7 +4,7 @@
  * PageHead
  * @author garethflowers
  */
-class PageHead implements IRenderable
+class HtmlHead implements IRenderable
 {
 
     private $template;
@@ -15,9 +15,6 @@ class PageHead implements IRenderable
     private $keyword;
     private $link;
 
-    /**
-     * create new instance of the Page class
-     */
     public function __construct()
     {
         $this->title = '';
@@ -32,8 +29,8 @@ class PageHead implements IRenderable
 
         if ( !empty( $this->template ) )
         {
-            require_once( $_SERVER['DOCUMENT_ROOT'] . '/lib/template/' . $this->template . '/header.php');
-            require_once( $_SERVER['DOCUMENT_ROOT'] . '/lib/template/' . $this->template . '/footer.php');
+            require_once( $_SERVER['DOCUMENT_ROOT'] . '/lib/template/' . $this->template . '/header.php' );
+            require_once( $_SERVER['DOCUMENT_ROOT'] . '/lib/template/' . $this->template . '/footer.php' );
         }
     }
 
@@ -267,5 +264,3 @@ class PageHead implements IRenderable
     }
 
 }
-
-?>

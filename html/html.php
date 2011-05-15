@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Element
+ * Html Base Class
  * @author garethflowers
  */
 abstract class Html implements IRenderable
@@ -12,23 +12,20 @@ abstract class Html implements IRenderable
 
     /**
      *
-     * @param string $tag
+     * @return string
      */
-    public function __construct( $tag, $id, $class )
+    private function __toString()
     {
-        $this->tag = $tag;
-        $this->attributes = array( );
-        $this->setId( $id );
-        $this->setClass( $class );
+        return $this->render();
     }
 
     /**
      *
-     * @return string
      */
-    public function __toString()
+    protected function __construct( $tag )
     {
-        return $this->render();
+        $this->tag = $tag;
+        $this->attributes = array( );
     }
 
     /**

@@ -4,10 +4,16 @@
  * Form
  * @author garethflowers
  */
-class Form extends Html_Container
+class HtmlForm extends HtmlContainer
 {
 
-    public function __construct( $name, $method, $action )
+    /**
+     *
+     * @param type $name
+     * @param type $method
+     * @param type $action
+     */
+    public function __construct( $name, $action, $method )
     {
         parent::__construct( 'form' );
         $this->setAttribute( 'name', $name );
@@ -43,5 +49,3 @@ class Form extends Html_Container
     }
 
 }
-
-?>

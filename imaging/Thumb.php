@@ -4,7 +4,7 @@
  * Thumbnail Image Generator
  * @author garethflowers
  */
-class ThumbNail
+class ImagingThumbNail implements IRenderable
 {
 
     public function render()

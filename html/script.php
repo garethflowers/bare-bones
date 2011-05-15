@@ -4,14 +4,18 @@
  * JScript
  * @author garethflowers
  */
-class JScript extends Html_Container
+class HtmlScript extends HtmlContainer
 {
 
     private $domready;
 
-    public function __construct( $domready, $content = NULL )
+    /**
+     *
+     * @param boolean $domready
+     */
+    public function __construct( $domready = TRUE )
     {
-        parent::__construct( 'script', NULL, NULL, $content );
+        parent::__construct( 'script' );
         $this->setAttribute( 'type', 'text/javascript' );
         $this->domready = (bool) $domready;
     }
@@ -29,5 +33,3 @@ class JScript extends Html_Container
     }
 
 }
-
-?>

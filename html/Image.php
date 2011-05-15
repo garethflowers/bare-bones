@@ -1,19 +1,27 @@
 <?php
 
 /**
- * Image
+ * HtmlImage
  * @author garethflowers
  */
-class Image extends Html
+class HtmlImage extends Html
 {
 
-    public function __construct( $id = NULL, $class = NULL, $src = NULL )
+    /**
+     *
+     * @param string $source
+     */
+    public function __construct( $source = NULL )
     {
-        parent::__construct( 'img', $id, $class );
-        $this->setSrc( $src );
+        parent::__construct( 'img' );
+        $this->setSource( $source );
     }
 
-    public function setSrc( $value )
+    /**
+     *
+     * @param string $value
+     */
+    public function setSource( $value )
     {
         if ( !isset( $value ) )
         {
@@ -24,5 +32,3 @@ class Image extends Html
     }
 
 }
-
-?>
