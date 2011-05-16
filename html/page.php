@@ -14,6 +14,7 @@ class HtmlPage extends HtmlContainer
     public function __construct()
     {
         parent::__construct( 'div' );
+        $this->setId( 'content' );
         $this->head = new HtmlHead();
         $this->header = new HtmlHeader();
         $this->footer = new HtmlFooter();
