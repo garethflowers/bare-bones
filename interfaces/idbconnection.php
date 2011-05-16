@@ -7,7 +7,7 @@
 interface IDbConnection
 {
 
-    public static function connection( $server, $database, $username, $password );
+    public static function connection();
 
     public function execQuery( $query );
 
