@@ -38,7 +38,7 @@ require_once( 'html/header.php' );
 require_once( 'html/footer.php' );
 require_once( 'html/head.php' );
 require_once( 'html/form.php' );
-require_once( 'html/div.php' );
+require_once( 'html/section.php' );
 require_once( 'html/image.php' );
 require_once( 'html/script.php' );
 require_once( 'html/page.php' );

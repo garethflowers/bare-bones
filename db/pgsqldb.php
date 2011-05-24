@@ -7,33 +7,48 @@
 class PgSqlDb implements IDbConnection
 {
 
+    /**
+     * @var resource
+     */
     private static $connection;
+    /**
+     * @var string
+     */
     private $username;
+    /**
+     * @var string
+     */
     private $password;
+    /**
+     * @var string
+     */
     private $server;
+    /**
+     * @var string
+     */
     private $database;
 
     /**
      *
      * @return PgSqlDb
      */
-    public static function connection( $server, $database, $username, $password )
+    public static function connection()
     {
         if ( !isset( self::$connection ) )
         {
-            $c = __CLASS__;
-            self::$connection = new $c;
+            $class = __CLASS__;
+            self::$connection = new $class;
         }
 
         return self::$connection;
     }
 
-    private function __construct( $server, $database, $username, $password )
+    private function __construct()
     {
-        $this->server = $server;
-        $this->database = $database;
-        $htis->username = $username;
-        $this->password = $password;
+        $this->server = Config::$database_server;
+        $this->database = Config::$database_name;
+        $htis->username = Config::$database_username;
+        $this->password = Config::$database_password;
     }
 
     public static function FormatStr( $value )

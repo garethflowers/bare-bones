@@ -7,33 +7,48 @@
 class MySqlDb implements IDbConnection
 {
 
+    /**
+     * @var resource
+     */
     private static $connection;
+    /**
+     * @var string
+     */
     private $username;
+    /**
+     * @var string
+     */
     private $password;
+    /**
+     * @var string
+     */
     private $server;
+    /**
+     * @var string
+     */
     private $database;
 
+    private function __construct()
+    {
+        $this->server = Config::$database_server;
+        $this->database = Config::$database_name;
+        $htis->username = Config::$database_username;
+        $this->password = Config::$database_password;
+    }
+
     /**
-     *
+     * Get the current connection
      * @return MySqlDb
      */
-    public static function connection( $server, $database, $username, $password )
+    public static function connection()
     {
         if ( !isset( self::$connection ) )
         {
-            $c = __CLASS__;
-            self::$connection = new $c( $server, $database, $username, $password );
+            $class = __CLASS__;
+            self::$connection = new $class();
         }
 
         return self::$connection;
-    }
-
-    private function __construct( $server, $database, $username, $password )
-    {
-        $this->server = $server;
-        $this->database = $database;
-        $htis->username = $username;
-        $this->password = $password;
     }
 
     public static function FormatStr( $value )

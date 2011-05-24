@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Page
+ * HtmlPage
  * @author garethflowers
  */
 class HtmlPage extends HtmlContainer
@@ -11,17 +11,33 @@ class HtmlPage extends HtmlContainer
     public $footer;
     public $head;
 
-    public function __construct()
+    /**
+     * Constructs a new instance of the HtmlPage
+     */
+    protected function __construct()
     {
         parent::__construct( 'div' );
-        $this->setId( 'content' );
-        $this->head = new HtmlHead();
-        $this->header = new HtmlHeader();
-        $this->footer = new HtmlFooter();
     }
 
     /**
-     * set the page title
+     * Create a new instance of the HtmlPage
+     * @return HtmlPage
+     */
+    public static function create()
+    {
+        $class = __CLASS__;
+        $class = new $class();
+
+        $class->setId( 'content' );
+        $class->head = new HtmlHead();
+        $class->header = new HtmlHeader();
+        $class->footer = new HtmlFooter();
+
+        return $class;
+    }
+
+    /**
+     * Set the page title
      * @param string $title
      */
     public function setTitle( $title )
@@ -30,7 +46,7 @@ class HtmlPage extends HtmlContainer
     }
 
     /**
-     * set the document description
+     * Set the document description
      * @param string $description
      */
     public function setDescription( $description )
@@ -39,7 +55,7 @@ class HtmlPage extends HtmlContainer
     }
 
     /**
-     * add a keyword to the page header
+     * Add a keyword to the page header
      * @param string $word
      */
     public function addKeyword( $word )
@@ -48,7 +64,7 @@ class HtmlPage extends HtmlContainer
     }
 
     /**
-     * render the page a a complete html document
+     * Renders the page as HTML
      * @return string
      */
     public function render()

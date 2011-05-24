@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Div
+ * HtmlTitle
  * @author garethflowers
  */
 class HtmlTitle extends HtmlContainer
@@ -11,7 +11,7 @@ class HtmlTitle extends HtmlContainer
      *
      * @param integer $level
      */
-    public function __construct( $level = 1 )
+    public function __construct( $level )
     {
         $level = intval( $level );
 
@@ -21,6 +21,24 @@ class HtmlTitle extends HtmlContainer
         }
 
         parent::__construct( 'H' . strval( $level ) );
+    }
+
+    /**
+     * Create a new instance of the HtmlTitle
+     * @param int $level
+     * @param string $id
+     * @param mixed $content
+     * @return HtmlTitle
+     */
+    public static function create( $level, $id = NULL, $content = NULL )
+    {
+        $class = __CLASS__;
+        $class = new $class( $level );
+
+        $class->setId( $id );
+        $class->setContent( $content );
+
+        return $class;
     }
 
 }

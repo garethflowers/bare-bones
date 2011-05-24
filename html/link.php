@@ -8,13 +8,28 @@ class HtmlLink extends HtmlContainer
 {
 
     /**
-     *
-     * @param type $link
+     * Constructs a new instance of the HtmlLink
      */
-    public function __construct( $link = NULL )
+    public function __construct()
     {
         parent::__construct( 'a' );
-        $this->setLink( $link );
+    }
+
+    /**
+     * Create a new instance of the HtmlLink
+     * @param string $link
+     * @return HtmlLink
+     */
+    public static function create( $link = NULL, $id = NULL, $content = NULL )
+    {
+        $class = __CLASS__;
+        $class = new $class();
+
+        $class->setLink( $link );
+        $class->setId( $id );
+        $class->setContent( $content );
+
+        return $class;
     }
 
     /**

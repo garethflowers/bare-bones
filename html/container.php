@@ -13,7 +13,7 @@ abstract class HtmlContainer extends Html
     private $content;
 
     /**
-     * initiate a new ContainerElement
+     * Constructs a new instance of the container
      */
     protected function __construct( $tag )
     {
@@ -22,7 +22,7 @@ abstract class HtmlContainer extends Html
     }
 
     /**
-     * get Content
+     * Gets the content of the element
      * @return mixed[]
      */
     public function getContent()
@@ -31,7 +31,7 @@ abstract class HtmlContainer extends Html
     }
 
     /**
-     * clears the content
+     * Clears the content of the element
      */
     public function clearContent()
     {
@@ -39,7 +39,7 @@ abstract class HtmlContainer extends Html
     }
 
     /**
-     *
+     * Sets the content of the element
      * @param mixed $value
      */
     public function setContent( $value )
@@ -55,7 +55,7 @@ abstract class HtmlContainer extends Html
     }
 
     /**
-     *
+     * Adds content to the element
      * @param mixed $value
      */
     public function addContent( $value )
@@ -76,7 +76,7 @@ abstract class HtmlContainer extends Html
     }
 
     /**
-     *
+     * Checks if the element has any content
      * @return integer
      */
     public function hasContent()
@@ -85,7 +85,7 @@ abstract class HtmlContainer extends Html
     }
 
     /**
-     * renders the element
+     * Renders the element as HTML
      * @return string
      */
     public function render()

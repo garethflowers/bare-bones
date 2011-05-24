@@ -11,16 +11,7 @@ abstract class Html implements IRenderable
     protected $attributes;
 
     /**
-     *
-     * @return string
-     */
-    private function __toString()
-    {
-        return $this->render();
-    }
-
-    /**
-     *
+     * Constructs a new instance of the element
      */
     protected function __construct( $tag )
     {
@@ -29,7 +20,16 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
+     * Sames as $this->render()
+     * @return string
+     */
+    private function __toString()
+    {
+        return $this->render();
+    }
+
+    /**
+     * Gets the Class of the element
      * @return string
      */
     public function getClass()
@@ -38,7 +38,7 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
+     * Sets the Class of the element
      * @param string $value
      */
     public function setClass( $value )
@@ -57,7 +57,7 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
+     * Gets the ID of the element
      * @return string
      */
     public function getId()
@@ -66,7 +66,7 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
+     * Sets the ID of the Element
      * @param string $value
      */
     public function setId( $value )
@@ -85,7 +85,7 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
+     * Gets an attribute of the element
      * @param string $attribute
      * @return string
      */
@@ -100,7 +100,7 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
+     * Sets an attribute on the element
      * @param string $attribute
      * @param string $value
      */
@@ -122,8 +122,8 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
-     * @return string[]
+     * Gets all the attributes of the element
+     * @return array
      */
     public function getAttributes()
     {
@@ -131,7 +131,7 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
+     * Checks if the element has any attributes
      * @return bool
      */
     public function hasAttributes()
@@ -140,8 +140,8 @@ abstract class Html implements IRenderable
     }
 
     /**
-     *
-     * @return string
+     * Renders the element as HTML
+     * @return string HTML version of the element and its contents
      */
     public function render()
     {
