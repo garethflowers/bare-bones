@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Div
+ * HTML Header
+ * Generates a HTML <header> element
+ *
  * @author garethflowers
  */
 class HtmlHeader extends HtmlContainer

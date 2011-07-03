@@ -2,6 +2,7 @@
 
 /**
  * Html Base Class
+ *
  * @author garethflowers
  */
 abstract class Html implements IRenderable

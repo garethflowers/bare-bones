@@ -1,7 +1,9 @@
 <?php
 
 /**
- * JScript
+ * HtmlScript
+ * Generates a HTML <script type="text/javascript"> element
+ *
  * @author garethflowers
  */
 class HtmlScript extends HtmlContainer

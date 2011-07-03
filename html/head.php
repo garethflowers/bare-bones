@@ -1,7 +1,9 @@
 <?php
 
 /**
- * PageHead
+ * HTML Head
+ * Generates a HTML <head> element
+ *
  * @author garethflowers
  */
 class HtmlHead implements IRenderable

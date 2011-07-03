@@ -2,6 +2,7 @@
 
 /**
  * HtmlImage
+ * Generates a HTML <img> element
  * @author garethflowers
  */
 class HtmlImage extends Html

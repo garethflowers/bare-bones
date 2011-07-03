@@ -1,7 +1,8 @@
 <?php
 
 /**
- * ContainerElement
+ * HTML Base Container Class
+ *
  * @author garethflowers
  */
 abstract class HtmlContainer extends Html

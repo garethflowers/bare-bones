@@ -2,6 +2,8 @@
 
 /**
  * HtmlPage
+ * Generates a HTML <html> element, including <head> and <body>
+ *
  * @author garethflowers
  */
 class HtmlPage extends HtmlContainer

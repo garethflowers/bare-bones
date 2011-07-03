@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Form
+ * HTML Form
+ * Generates a HTML <form> element
+ *
  * @author garethflowers
  */
 class HtmlForm extends HtmlContainer

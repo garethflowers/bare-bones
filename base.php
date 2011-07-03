@@ -2,6 +2,7 @@
 
 /**
  * Base Web Loader
+ * 
  * @author garethflowers
  */
 // show any errors
@@ -42,4 +43,3 @@ require_once( 'html/section.php' );
 require_once( 'html/image.php' );
 require_once( 'html/script.php' );
 require_once( 'html/page.php' );
-?>

@@ -2,6 +2,8 @@
 
 /**
  * HtmlSection
+ * Generates a HTML <div> element
+ *
  * @author garethflowers
  */
 class HtmlSection extends HtmlContainer

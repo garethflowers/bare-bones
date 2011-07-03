@@ -2,6 +2,8 @@
 
 /**
  * HtmlLink
+ * Generates a HTML <a> element
+ *
  * @author garethflowers
  */
 class HtmlLink extends HtmlContainer

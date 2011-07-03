@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Div
+ * HTML Footer
+ * Generates a HTML <footer> element
+ *
  * @author garethflowers
  */
 class HtmlFooter extends HtmlContainer
