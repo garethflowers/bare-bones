@@ -1,13 +1,18 @@
 <?php
 
-/*
+/**
  * Curl Class
+ *
  * @author garethflowers
  */
-
 class Curl
 {
 
+    /**
+     * execute a get using CURL and return the result
+     * @param string $url
+     * @return string
+     */
     public static function curl_get( $url )
     {
         $defaults = array(

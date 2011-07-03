@@ -2,6 +2,7 @@
 
 /**
  * SiteMap Class
+ *
  * @author garethflowers
  */
 class SiteMap
@@ -46,7 +47,7 @@ class SiteMap
 
     /**
      * Output the SiteMap as an XML document
-     * @return xml
+     * @return string
      */
     public function render()
     {

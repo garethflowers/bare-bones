@@ -2,14 +2,15 @@
 
 /**
  * Validation
+ *
  * @author garethflowers
  */
 class Validation
 {
 
     /**
-     * validates an email address
-     * @param mixed $email
+     * Validates an email address
+     * @param string $email
      * @return boolean
      */
     public static function IsEmail( $email )
@@ -19,8 +20,8 @@ class Validation
     }
 
     /**
-     * validates a date
-     * @param mixed $date
+     * Validates a date
+     * @param string $date
      * @return boolean
      */
     public static function IsDate( $date )

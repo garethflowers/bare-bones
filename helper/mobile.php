@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * Mobile
+ * 
+ * @author garethflowers
+ */
 class mobile
 {
 
+    /**
+     *
+     * @return boolean
+     */
     public static function detect()
     {
         $iphone = true;

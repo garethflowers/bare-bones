@@ -2,13 +2,11 @@
 
 /**
  * Email Class
+ *
  * @author garethflowers
  */
 class Email
 {
-
-    const EOL = "\n";
-
     /**
      * from email address
      * @var string
@@ -39,14 +37,14 @@ class Email
      */
     public function Send( $to, $subject, $message )
     {
-        $headers = 'From: ' . $this->fromname . '<' . $this->from . '>' . EOL;
-        $headers .= 'Reply-To: ' . $this->fromname . '<' . $this->from . '>' . EOL;
-        $headers .= 'Return-Path: ' . $this->fromname . '<' . $this->from . '>' . EOL;
-        $headers .= 'Message-ID: <' . date( 'u' ) . ' ' . $this->from . '>' . EOL;
-        $headers .= 'X-Mailer: PHP v' . phpversion() . EOL;
-        $headers .= 'MIME-Version: 1.0' . EOL;
-        $headers .= 'Content-Type: text/html; charset=utf8' . EOL;
-        $headers .= 'Content-Transfer-Encoding: 8bit' . EOL;
+        $headers = 'From: ' . $this->fromname . '<' . $this->from . '>' . PHP_EOL;
+        $headers .= 'Reply-To: ' . $this->fromname . '<' . $this->from . '>' . PHP_EOL;
+        $headers .= 'Return-Path: ' . $this->fromname . '<' . $this->from . '>' . PHP_EOL;
+        $headers .= 'Message-ID: <' . date( 'u' ) . ' ' . $this->from . '>' . PHP_EOL;
+        $headers .= 'X-Mailer: PHP v' . phpversion() . PHP_EOL;
+        $headers .= 'MIME-Version: 1.0' . PHP_EOL;
+        $headers .= 'Content-Type: text/html; charset=utf8' . PHP_EOL;
+        $headers .= 'Content-Transfer-Encoding: 8bit' . PHP_EOL;
 
         ini_set( sendmail_from, $this->from );
         mail( $to, $subject, $message, $headers );
