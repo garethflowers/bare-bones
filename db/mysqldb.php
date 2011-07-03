@@ -7,187 +7,219 @@
 class MySqlDb implements IDbConnection
 {
 
-    /**
-     * @var resource
-     */
-    private static $connection;
-    /**
-     * @var string
-     */
-    private $username;
-    /**
-     * @var string
-     */
-    private $password;
-    /**
-     * @var string
-     */
-    private $server;
-    /**
-     * @var string
-     */
-    private $database;
 
-    private function __construct()
-    {
-        $this->server = Config::$database_server;
-        $this->database = Config::$database_name;
-        $htis->username = Config::$database_username;
-        $this->password = Config::$database_password;
-    }
+	/**
+	 * @var resource
+	 */
+	private static $connection;
 
-    /**
-     * Get the current connection
-     * @return MySqlDb
-     */
-    public static function connection()
-    {
-        if ( !isset( self::$connection ) )
-        {
-            $class = __CLASS__;
-            self::$connection = new $class();
-        }
+	/**
+	 * @var string
+	 */
+	private $username;
 
-        return self::$connection;
-    }
+	/**
+	 * @var string
+	 */
+	private $password;
 
-    public static function FormatStr( $value )
-    {
-        if ( empty( $value ) )
-        {
-            return '';
-        }
+	/**
+	 * @var string
+	 */
+	private $server;
 
-        return '\'' . mysql_escape_string( utf8_encode( trim( $value ) ) ) . '\'';
-    }
+	/**
+	 * @var string
+	 */
+	private $database;
 
-    public static function FormatInt( $value )
-    {
-        if ( !is_numeric( $value ) )
-        {
-            return 'NULL';
-        }
 
-        return strval( intval( $value ) );
-    }
+	private function __construct()
+	{
+		$this->server = Config::$database_server;
+		$this->database = Config::$database_name;
+		$htis->username = Config::$database_username;
+		$this->password = Config::$database_password;
+	}
 
-    public static function FormatFloat( $value )
-    {
-        if ( !is_numeric( $value ) )
-        {
-            return 'NULL';
-        }
 
-        return strval( floatval( $value ) );
-    }
+	/**
+	 * Get the current connection
+	 * @return MySqlDb
+	 */
+	public static function connection()
+	{
+		if ( !isset( self::$connection ) )
+		{
+			$class = __CLASS__;
+			self::$connection = new $class();
+		}
 
-    public static function FormatDate( $value )
-    {
-        if ( !empty( $value ) && count( explode( '-', $value ) ) == 3 )
-        {
-            return vsprintf( '\'%04d-%02d-%02d\'', array_reverse( explode( '-', $value ) ) );
-        }
-        else
-        {
-            return 'NULL';
-        }
-    }
+		return self::$connection;
+	}
 
-    public static function FormatTimestamp( $value )
-    {
-        return!empty( $value ) && $value != '--' ? '\'' . $value . '\'' : 'null';
-    }
 
-    public static function FormatBool( $value )
-    {
-        if ( !is_bool( $value ) )
-        {
-            return 'NULL';
-        }
+	/**
+	 * Format string
+	 * @param mixed $value
+	 */
+	public static function FormatStr( $value )
+	{
+		if ( empty( $value ) )
+		{
+			return '';
+		}
 
-        if ( (bool) $value )
-        {
-            return 'TRUE';
-        }
-        else
-        {
-            return 'FALSE';
-        }
-    }
+		return "'" . mysql_escape_string( utf8_encode( trim( $value ) ) ) . "'";
+	}
 
-    public static function FormatPicture( $value )
-    {
-        return!empty( $value ) ? '\'' . chunk_split( base64_encode( $value ) ) . '\'' : 'null';
-    }
 
-    private function Connect()
-    {
-        return mysql_connect( $this->server, $this->username, $this->password );
-    }
+	public static function FormatInt( $value )
+	{
+		if ( !is_numeric( $value ) )
+		{
+			return 'NULL';
+		}
 
-    /**
-     * execute a database query and return the result
-     * @param string $query
-     * @return boolean
-     */
-    public function execQuery( $query )
-    {
-        $conn = $this->Connect();
+		return strval( intval( $value ) );
+	}
 
-        if ( !$conn )
-        {
-            return NULL;
-        }
 
-        mysql_select_db( $this->database );
+	public static function FormatFloat( $value )
+	{
+		if ( !is_numeric( $value ) )
+		{
+			return 'NULL';
+		}
 
-        $result = mysql_query( $query, $conn );
+		return strval( floatval( $value ) );
+	}
 
-        if ( !$result )
-        {
-            return NULL;
-        }
 
-        mysql_close( $conn );
+	public static function FormatDate( $value )
+	{
+		if ( !empty( $value ) && count( explode( '-', $value ) ) == 3 )
+		{
+			return vsprintf( '\'%04d-%02d-%02d\'', array_reverse( explode( '-', $value ) ) );
+		}
+		else
+		{
+			return 'NULL';
+		}
+	}
 
-        return $result;
-    }
 
-    /**
-     * execute a query and any rows
-     * @param string $query
-     * @return mixed[]
-     */
-    public function getData( $query )
-    {
-        $conn = $this->Connect();
+	public static function FormatTimestamp( $value )
+	{
+		return!empty( $value ) && $value != '--' ? '\'' . $value . '\'' : 'null';
+	}
 
-        if ( !$conn )
-        {
-            return NULL;
-        }
 
-        mysql_select_db( $this->database );
+	/**
+	 * returns a boolean database value
+	 * @param mixed $value
+	 * @return string
+	 */
+	public static function formatBool( $value )
+	{
+		if ( !is_bool( $value ) )
+		{
+			return 'NULL';
+		}
 
-        $result = mysql_query( $query, $conn );
+		if ( (bool) $value )
+		{
+			return 'TRUE';
+		}
+		else
+		{
+			return 'FALSE';
+		}
+	}
 
-        if ( !$result )
-        {
-            return NULL;
-        }
 
-        $data = array( );
+	/**
+	 * returns a picture database value
+	 * @param mixed $value
+	 * @return string
+	 */
+	public static function formatPicture( $value )
+	{
+		return!empty( $value ) ? '\'' . chunk_split( base64_encode( $value ) ) . '\'' : 'null';
+	}
 
-        while ( $row = mysql_fetch_assoc( $result ) )
-        {
-            $data[] = $row;
-        }
 
-        mysql_close( $conn );
+	/**
+	 * connect to a database
+	 */
+	private function Connect()
+	{
+		return mysql_connect( $this->server, $this->username, $this->password );
+	}
 
-        return $data;
-    }
+
+	/**
+	 * execute a database query and return the result
+	 * @param string $query
+	 * @return boolean
+	 */
+	public function execQuery( $query )
+	{
+		$conn = $this->Connect();
+
+		if ( !$conn )
+		{
+			return NULL;
+		}
+
+		mysql_select_db( $this->database );
+
+		$result = mysql_query( $query, $conn );
+
+		if ( !$result )
+		{
+			return NULL;
+		}
+
+		mysql_close( $conn );
+
+		return $result;
+	}
+
+
+	/**
+	 * execute a query and return any rows
+	 * @param string $query
+	 * @return mixed[]
+	 */
+	public function getData( $query )
+	{
+		$conn = $this->Connect();
+
+		if ( !$conn )
+		{
+			return NULL;
+		}
+
+		mysql_select_db( $this->database );
+
+		$result = mysql_query( $query, $conn );
+
+		if ( !$result )
+		{
+			return NULL;
+		}
+
+		$data = array( );
+
+		while ( $row = mysql_fetch_assoc( $result ) )
+		{
+			$data[] = $row;
+		}
+
+		mysql_close( $conn );
+
+		return $data;
+	}
 
 }
-
-?>

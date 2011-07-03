@@ -18,15 +18,15 @@ class SiteMap
      * @param array $page
      * @return xml
      */
-    private function RenderPage( $page )
+    private function renderPage( $page )
     {
-        $xml = '<url>';
-        $xml .= '<loc>http://' . $_SERVER['HTTP_HOST'] . $page['url'] . '</loc>';
-        $xml .= '<lastmod>' . $page['modified'] . '</lastmod>';
-        $xml .= '<changefreq>weekly</changefreq>';
-        $xml .= '<priority>' . $page['priority'] . '</priority>';
-        $xml .= '</url>';
-        return $xml;
+        $result = '<url>';
+        $result .= '<loc>http://' . $_SERVER['HTTP_HOST'] . $page['url'] . '</loc>';
+        $result .= '<lastmod>' . $page['modified'] . '</lastmod>';
+        $result .= '<changefreq>weekly</changefreq>';
+        $result .= '<priority>' . $page['priority'] . '</priority>';
+        $result .= '</url>';
+        return $result;
     }
 
     /**
@@ -35,7 +35,7 @@ class SiteMap
      * @param date $modified Date last modified in ISO 8601 format
      * @param integer $priority Priority of the URL
      */
-    public function Add( $url, $modified, $priority )
+    public function add( $url, $modified, $priority )
     {
         $this->pages[] = array(
             'url' => $url,
@@ -48,21 +48,21 @@ class SiteMap
      * Output the SiteMap as an XML document
      * @return xml
      */
-    public function Render()
+    public function render()
     {
         header( 'Content-Type: text/xml;charset=utf-8' );
 
-        $xml = '<?xml version="1.0" encoding="UTF-8"?>';
-        $xml .= "\n" . '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        $result = '<?xml version="1.0" encoding="UTF-8"?>';
+        $result .= PHP_EOL . '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
         foreach ( $this->pages as $node )
         {
-            $xml .= "\n" . $this->RenderPage( $node );
+            $result .= PHP_EOL . $this->renderPage( $node );
         }
 
-        $xml .= '</urlset>';
+        $result .= PHP_EOL . '</urlset>';
 
-        return $xml;
+        return $result;
     }
 
 }
