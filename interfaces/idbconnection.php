@@ -2,6 +2,7 @@
 
 /**
  * IDbConnection
+ *
  * @author garethflowers
  */
 interface IDbConnection
@@ -14,5 +15,3 @@ interface IDbConnection
     public function getData( $query );
 
 }
-
-?>

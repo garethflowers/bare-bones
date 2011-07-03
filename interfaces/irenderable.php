@@ -2,6 +2,7 @@
 
 /**
  * IRenderable
+ *
  * @author garethflowers
  */
 interface IRenderable
@@ -10,5 +11,3 @@ interface IRenderable
     public function render();
 
 }
-
-?>
