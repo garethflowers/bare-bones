@@ -2,27 +2,44 @@
 
 /**
  * Thumbnail Image Generator
+ *
  * @author garethflowers
  */
 class ImagingThumbNail implements IRenderable
 {
 
+    /**
+     * @var string File Path
+     */
+    private $path;
+
+    /**
+     * Contruct new ImagingGrayscale
+     * @param string $path
+     */
+    public function __construct( $path )
+    {
+        $this->path = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . strval( $path );
+    }
+
+    /**
+     * render class as a thumbnail PNG image
+     */
     public function render()
     {
         header( 'content-type: image/png' );
 
         $image = null;
 
-        if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) )
+        if ( file_exists( $this->path ) )
         {
-            $filename = $_SERVER['DOCUMENT_ROOT'] . '/' . $_GET['id'];
-            $image = imagecreatefrompng( $filename );
+            $image = imagecreatefrompng( $this->path );
             $width = 180;
             $height = 180;
             $width_orig = 0;
             $height_orig = 0;
 
-            list( $width_orig, $height_orig ) = getimagesize( $filename );
+            list( $width_orig, $height_orig ) = getimagesize( $this->path );
 
             if ( $width && ( $width_orig < $height_orig ) )
             {

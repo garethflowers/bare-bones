@@ -2,24 +2,28 @@
 
 /**
  * Grayscale Image Generator
+ *
  * @author garethflowers
  */
 class ImagingGrayscale implements IRenderable
 {
 
+    /**
+     * @var string File Path
+     */
     private $path;
 
     /**
-     *
+     * Contruct new ImagingGrayscale
      * @param string $path
      */
     public function __construct( $path )
     {
-        $this->path = strval( $path );
+        $this->path = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . strval( $path );
     }
 
     /**
-     *
+     * render class as a PNG image
      */
     public function render()
     {
@@ -27,10 +31,9 @@ class ImagingGrayscale implements IRenderable
 
         $image = null;
 
-        if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) )
+        if ( file_exists( $this->path ) )
         {
-            $filename = $_SERVER['DOCUMENT_ROOT'] . '/' . $_GET['id'];
-            $image = imagecreatefrompng( $filename );
+            $image = imagecreatefrompng( $this->path );
             imagefilter( $image, IMG_FILTER_GRAYSCALE );
             imagefilter( $image, IMG_FILTER_BRIGHTNESS, 30 );
         }
@@ -43,5 +46,3 @@ class ImagingGrayscale implements IRenderable
     }
 
 }
-
-?>
