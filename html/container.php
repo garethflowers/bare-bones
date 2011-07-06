@@ -9,9 +9,9 @@ abstract class HtmlContainer extends Html
 {
 
     /**
-     * @var array contents of the container
+     * @var array Contents of the Container
      */
-    private $content;
+    protected $content = array( );
 
     /**
      * Constructs a new instance of the container
@@ -19,7 +19,19 @@ abstract class HtmlContainer extends Html
     protected function __construct( $tag )
     {
         parent::__construct( $tag );
-        $this->content = array( );
+    }
+
+    /**
+     * Create a new instance of the HtmlSection
+     * @return HtmlContainer
+     */
+    public static function create( $content = NULL )
+    {
+        $class = parent::create();
+
+        $class->setContent( $content );
+
+        return $class;
     }
 
     /**
@@ -29,6 +41,15 @@ abstract class HtmlContainer extends Html
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Gets the count of the content of the element
+     * @return int
+     */
+    public function getContentCount()
+    {
+        return count( $this->content );
     }
 
     /**
@@ -91,26 +112,14 @@ abstract class HtmlContainer extends Html
      */
     public function render()
     {
-        if ( !$this->hasAttributes() && !$this->hasContent() )
-        {
-            return '';
-        }
-
-        $result = '<' . $this->tag;
-
-        foreach ( $this->attributes as $attribute => $value )
-        {
-            $result .= ' ' . $attribute . '="' . $value . '"';
-        }
-
-        $result .= '>';
+        $result = $this->renderStartTag( FALSE );
 
         foreach ( $this->content as $content )
         {
             $result .= $content;
         }
 
-        $result .= '</' . $this->tag . '>';
+        $result .= $this->renderEndTag();
 
         return $result;
     }

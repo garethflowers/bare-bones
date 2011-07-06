@@ -10,22 +10,15 @@ class HtmlHead implements IRenderable
 {
 
     private $template;
-    private $meta;
-    private $title;
-    private $sitename;
-    private $script;
-    private $keyword;
-    private $link;
+    private $title = '';
+    private $sitename = '';
+    private $meta = array( );
+    private $script = array( );
+    private $keyword = array( );
+    private $link = array( );
 
     public function __construct()
     {
-        $this->title = '';
-        $this->sitename = '';
-        $this->meta = array( );
-        $this->link = array( );
-        $this->script = array( );
-        $this->keyword = array( );
-
         $this->addMeta( 'handheldfriendly', 'true', '' );
         $this->addMeta( 'viewport', 'width=device-width,height=device-height,user-scalable=no,initial-scale=0.5', '' );
 
@@ -34,6 +27,18 @@ class HtmlHead implements IRenderable
             require_once( $_SERVER['DOCUMENT_ROOT'] . '/lib/template/' . $this->template . '/header.php' );
             require_once( $_SERVER['DOCUMENT_ROOT'] . '/lib/template/' . $this->template . '/footer.php' );
         }
+    }
+
+    /**
+     * Factory method
+     * @param mixed $content
+     * @return htmlHead
+     */
+    public static function create( $content = NULL )
+    {
+        $class = parent::create( $content );
+
+        return $class;
     }
 
     /**

@@ -19,17 +19,15 @@ class HtmlLink extends HtmlContainer
 
     /**
      * Create a new instance of the HtmlLink
-     * @param string $link
+     * @param string $link Link
+     * @param mixed $content Content
      * @return HtmlLink
      */
-    public static function create( $link = NULL, $id = NULL, $content = NULL )
+    public static function create( $link = NULL, $content = NULL )
     {
-        $class = __CLASS__;
-        $class = new $class();
+        $class = parent::create( $content );
 
         $class->setLink( $link );
-        $class->setId( $id );
-        $class->setContent( $content );
 
         return $class;
     }

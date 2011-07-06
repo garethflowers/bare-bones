@@ -23,6 +23,18 @@ class HtmlForm extends HtmlContainer
         $this->setAttribute( 'method', $method );
     }
 
+    /**
+     * Factory method
+     * @param mixed $content
+     * @return HtmlForm
+     */
+    public static function create( $content = NULL )
+    {
+        $class = parent::create( $content );
+
+        return $class;
+    }
+
     public function setName( $value )
     {
         $this->setAttribute( 'name', $value );

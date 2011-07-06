@@ -2,17 +2,29 @@
 
 /**
  * Mobile
- * 
+ *
  * @author garethflowers
  */
 class mobile
 {
 
+    private $isMobile = NULL;
+
+    public static function isMobile()
+    {
+        if ( is_null( $this->isMobile ) )
+        {
+            $this->isMobile = $this->detect();
+        }
+
+        return $this->isMobile;
+    }
+
     /**
      *
      * @return boolean
      */
-    public static function detect()
+    private function detect()
     {
         $iphone = true;
         $ipad = true;

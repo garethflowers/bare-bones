@@ -17,6 +17,18 @@ class HtmlHeader extends HtmlContainer
         parent::__construct( 'header' );
     }
 
+    /**
+     * Factory method
+     * @param mixed $content
+     * @return HtmlHeader
+     */
+    public static function create( $content = NULL )
+    {
+        $class = parent::create( $content );
+
+        return $class;
+    }
+
 }
 
 ?>

@@ -10,7 +10,7 @@ class HtmlSection extends HtmlContainer
 {
 
     /**
-     * Constructs a new instance of the HtmlSection
+     * Constructs a new HtmlSection
      */
     public function __construct()
     {
@@ -19,15 +19,12 @@ class HtmlSection extends HtmlContainer
 
     /**
      * Create a new instance of the HtmlSection
+     * @param mixed $content Content
      * @return HtmlSection
      */
-    public static function create( $id = NULL, $content = NULL )
+    public static function create( $content = NULL )
     {
-        $class = __CLASS__;
-        $class = new $class();
-
-        $class->setId( $id );
-        $class->setContent( $content );
+        $class = parent::create( $content );
 
         return $class;
     }

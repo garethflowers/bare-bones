@@ -75,11 +75,9 @@ class HtmlPage extends HtmlContainer
         $html .= '<html lang="en">';
         $html .= $this->head->render();
         $html .= '<body>';
-        $html .= '<div id="body">';
         $html .= $this->header->render();
         $html .= parent::render();
         $html .= $this->footer->render();
-        $html .= '</div>';
         $html .= '</body>';
         $html .= '</html>';
         return $html;

@@ -12,14 +12,27 @@ class HtmlScript extends HtmlContainer
     private $domready;
 
     /**
-     *
-     * @param boolean $domready
+     * Construct a new HtmlScript
      */
-    public function __construct( $domready = TRUE )
+    public function __construct()
     {
         parent::__construct( 'script' );
-        $this->setAttribute( 'type', 'text/javascript' );
-        $this->domready = (bool) $domready;
+    }
+
+    /**
+     * Create a new instance of the HtmlScript
+     * @param bool $domready
+     * @param mixed $content Content
+     * @return HtmlScript
+     */
+    public static function create( $domready = TRUE, $content = NULL )
+    {
+        $class = parent::create( $content );
+
+        $class->setAttribute( 'type', 'text/javascript' );
+        $class->domready = (bool) $domready;
+
+        return $class;
     }
 
     public function render()

@@ -14,4 +14,16 @@ class HtmlFooter extends HtmlContainer
         parent::__construct( 'footer' );
     }
 
+    /**
+     * Factory method
+     * @param mixed $content
+     * @return HtmlFooter
+     */
+    public static function create( $content = NULL )
+    {
+        $class = parent::create( $content );
+
+        return $class;
+    }
+
 }

@@ -10,7 +10,6 @@ class HtmlImage extends Html
 
     /**
      * Constructs a new instance of the HtmlImage
-     * @param string $source
      */
     public function __construct()
     {
@@ -20,16 +19,15 @@ class HtmlImage extends Html
     /**
      * Create a new instance of the HtmlImage
      * @param string $link
+     * @param string $alttext
      * @return HtmlImage
      */
-    public static function create( $source = NULL, $text = NULL, $id = NULL )
+    public static function create( $source = NULL, $alttext = NULL )
     {
-        $class = __CLASS__;
-        $class = new $class();
+        $class = parent::create();
 
         $class->setSource( $source );
-        $class->setAlt( $text );
-        $class->setId( $id );
+        $class->setAlt( $alttext );
 
         return $class;
     }
@@ -40,11 +38,6 @@ class HtmlImage extends Html
      */
     public function setSource( $value )
     {
-        if ( !isset( $value ) )
-        {
-            $value = '';
-        }
-
         $this->setAttribute( 'src', $value );
     }
 
@@ -54,11 +47,6 @@ class HtmlImage extends Html
      */
     public function setAlt( $text )
     {
-        if ( !isset( $text ) )
-        {
-            $text = '';
-        }
-
         $this->setAttribute( 'alt', $text );
     }
 

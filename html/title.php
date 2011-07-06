@@ -3,18 +3,30 @@
 /**
  * HtmlTitle
  * Generates a HTML <h1>, <h2>, <h3>, <h4>, <h5> or <h6> element
- * 
+ *
  * @author garethflowers
  */
 class HtmlTitle extends HtmlContainer
 {
 
     /**
-     *
-     * @param integer $level
+     * Construct a new HtmlTitle
      */
-    public function __construct( $level )
+    public function __construct()
     {
+        parent::__construct( 'H1' );
+    }
+
+    /**
+     * Create a new instance of the HtmlTitle
+     * @param int $level
+     * @param mixed $content
+     * @return HtmlTitle
+     */
+    public static function create( $level, $content = NULL )
+    {
+        $class = parent::create( $content );
+
         $level = intval( $level );
 
         if ( $level < 1 || $level > 6 )
@@ -22,23 +34,7 @@ class HtmlTitle extends HtmlContainer
             $level = 1;
         }
 
-        parent::__construct( 'H' . strval( $level ) );
-    }
-
-    /**
-     * Create a new instance of the HtmlTitle
-     * @param int $level
-     * @param string $id
-     * @param mixed $content
-     * @return HtmlTitle
-     */
-    public static function create( $level, $id = NULL, $content = NULL )
-    {
-        $class = __CLASS__;
-        $class = new $class( $level );
-
-        $class->setId( $id );
-        $class->setContent( $content );
+        $class->setTag( 'H' . $level );
 
         return $class;
     }

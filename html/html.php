@@ -8,8 +8,14 @@
 abstract class Html implements IRenderable
 {
 
-    protected $tag;
-    protected $attributes;
+    /**
+     * @var string HTML Tag
+     */
+    protected $tag = '';
+    /**
+     * @var array HTML Attributes
+     */
+    protected $attributes = array( );
 
     /**
      * Constructs a new instance of the element
@@ -17,7 +23,18 @@ abstract class Html implements IRenderable
     protected function __construct( $tag )
     {
         $this->tag = $tag;
-        $this->attributes = array( );
+    }
+
+    /**
+     * Create a new instance of the HtmlSection
+     * @return Html
+     */
+    public static function create()
+    {
+        $class = get_called_class();
+        $class = new $class();
+
+        return $class;
     }
 
     /**
@@ -36,6 +53,15 @@ abstract class Html implements IRenderable
     public function getClass()
     {
         return array_key_exists( 'class', $this->attributes ) ? $this->attributes['class'] : '';
+    }
+
+    /**
+     *
+     * @param string $value
+     */
+    protected function setTag( $value )
+    {
+        $this->tag = strval( $value );
     }
 
     /**
@@ -141,16 +167,12 @@ abstract class Html implements IRenderable
     }
 
     /**
-     * Renders the element as HTML
-     * @return string HTML version of the element and its contents
+     * Renders the element start tag as HTML
+     * @param bool $selfclosing
+     * @return string
      */
-    public function render()
+    protected function renderStartTag( $selfclosing = TRUE )
     {
-        if ( !$this->hasAttributes() )
-        {
-            return '';
-        }
-
         $result = '<' . $this->tag;
 
         foreach ( $this->attributes as $attribute => $value )
@@ -158,11 +180,38 @@ abstract class Html implements IRenderable
             $result .= ' ' . $attribute . '="' . $value . '"';
         }
 
-        $result .= ' />';
+        if ( $selfclosing )
+        {
+            $result .= ' />';
+        }
+        else
+        {
+            $result .= '>';
+        }
+
+        return $result;
+    }
+
+    /**
+     * Renders the element end tag as HTML
+     * @return string
+     */
+    protected function renderEndTag()
+    {
+        $result = '</' . $this->tag . '>';
+
+        return $result;
+    }
+
+    /**
+     * Renders the element as HTML
+     * @return string HTML version of the element and its contents
+     */
+    public function render()
+    {
+        $result = $this->renderStartTag( TRUE );
 
         return $result;
     }
 
 }
-
-?>
