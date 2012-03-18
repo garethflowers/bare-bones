@@ -12,8 +12,6 @@ IndexIgnore *
 DirectoryIndex /index.php
 
 
-
-
 # ----------------------------------------------------------------------
 # Better website experience for IE users
 # ----------------------------------------------------------------------
@@ -27,8 +25,6 @@ DirectoryIndex /index.php
 </IfModule>
 
 
-
-
 # ----------------------------------------------------------------------
 # Webfont access
 # ----------------------------------------------------------------------
@@ -38,8 +34,6 @@ DirectoryIndex /index.php
         Header set Access-Control-Allow-Origin "*"
     </FilesMatch>
 </IfModule>
-
-
 
 
 # ----------------------------------------------------------------------
@@ -69,8 +63,6 @@ AddType application/octet-stream            safariextz
 AddType application/x-web-app-manifest+json webapp
 AddType text/x-vcard                        vcf
 AddType application/x-httpd-php5            xml
-
-
 
 
 # ----------------------------------------------------------------------
@@ -119,8 +111,6 @@ AddType application/x-httpd-php5            xml
 </IfModule>
 
 
-
-
 # ----------------------------------------------------------------------
 # ETag removal
 # ----------------------------------------------------------------------
@@ -130,8 +120,6 @@ AddType application/x-httpd-php5            xml
 </IfModule>
 
 FileETag None
-
-
 
 
 # ----------------------------------------------------------------------
@@ -166,8 +154,6 @@ FileETag None
     ExpiresByType text/css                      "access plus 1 year"
     ExpiresByType application/javascript        "access plus 1 year"
 </IfModule>
-
-
 
 
 # ----------------------------------------------------------------------
@@ -209,16 +195,12 @@ FileETag None
 </IfModule>
 
 
-
-
 # ----------------------------------------------------------------------
 # UTF-8 encoding
 # ----------------------------------------------------------------------
 
 AddDefaultCharset utf-8
 AddCharset utf-8 .css .js .xml .json .rss .atom
-
-
 
 
 # ----------------------------------------------------------------------
@@ -240,8 +222,6 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
     Deny from all
     Satisfy All
 </FilesMatch>
-
-
 
 
 # ----------------------------------------------------------------------
