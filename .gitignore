@@ -3,3 +3,6 @@
 
 # editor files/folders
 nbproject
+.settings
+.buildpath
+.project
