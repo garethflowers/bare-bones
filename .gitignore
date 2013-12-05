@@ -2,7 +2,5 @@
 .DS_Store
 
 # editor files/folders
-nbproject
-.settings
-.buildpath
-.project
+.sublime-workspace
+
