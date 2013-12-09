@@ -16,14 +16,16 @@ abstract class BaseController {
     public $render;
 
     /**
-     * Before Action
+     * Pre Action
      */
-    abstract protected function beforeAction();
+    public function preAction() {
+    }
 
     /**
-     * After Action
+     * Post Action
      */
-    abstract protected function afterAction();
+    public function postAction() {
+    }
 
     /**
      *
