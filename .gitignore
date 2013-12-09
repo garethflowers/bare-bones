@@ -2,5 +2,5 @@
 .DS_Store
 
 # editor files/folders
-.sublime-workspace
+*.sublime-*
 
