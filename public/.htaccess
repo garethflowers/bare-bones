@@ -165,8 +165,9 @@ FileETag None
     RewriteEngine On
 
     # redirect to main site
-    RewriteCond %{HTTP_HOST} !^website\.com$ [NC]
-    RewriteRule ^(.*)$ http://website.com/$1 [R=301,L]
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 
     # add trailing slash if missing
     RewriteCond %{REQUEST_URI} ^/[^\.]+[^/]$ [NC]
