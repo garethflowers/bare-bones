@@ -1,3 +1,7 @@
 <?php
 
-defined('SITENAME') or define('SITENAME', 'Dummy Website');
+// Website Name
+define('SITENAME', 'Dummy Website');
+
+// Default Controller
+define('DEFAULT_CONTROLLER', 'Dummy');
