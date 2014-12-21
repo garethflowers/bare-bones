@@ -135,7 +135,7 @@ class Db {
             return $data[0];
         }
 
-        return NULL;
+        return null;
     }
 
     /**

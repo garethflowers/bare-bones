@@ -36,7 +36,7 @@ abstract class BaseController {
         $model = ucfirst($controller) . 'Model';
         $this->controller = ucfirst($controller);
         $this->action = $action;
-        $this->render = TRUE;
+        $this->render = true;
         $this->model = new $model;
         $this->template = new Template($controller, $action);
     }
