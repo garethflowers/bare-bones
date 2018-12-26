@@ -3,18 +3,20 @@
 /**
  * Formatter
  */
-class FormatterUtil {
+class FormatterUtil
+{
 
-    public static function combineNonEmpty($combiner, $details) {
-        $nonemptys = array();
+	public static function combineNonEmpty($combiner, $details)
+	{
+		$nonemptys = array();
 
-        foreach ($details as $value) {
-            if (!empty($value) && $value != '&nbsp;') {
-                $nonemptys[] = $value;
-            }
-        }
+		foreach ($details as $value) {
+			if (!empty($value) && $value != '&nbsp;') {
+				$nonemptys[] = $value;
+			}
+		}
 
-        return implode($combiner, $nonemptys);
-    }
+		return implode($combiner, $nonemptys);
+	}
 
 }

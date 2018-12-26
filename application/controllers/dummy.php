@@ -3,13 +3,15 @@
 /**
  * Dummy Controller
  */
-class DummyController extends BaseController {
+class DummyController extends BaseController
+{
 
-    /**
-     * Index Action
-     */
-    public function index() {
+	/**
+	 * Index Action
+	 */
+	public function index()
+	{
 
-    }
+	}
 
 }

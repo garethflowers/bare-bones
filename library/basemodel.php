@@ -3,13 +3,15 @@
 /**
  *
  */
-abstract class BaseModel {
+abstract class BaseModel
+{
 
-    /**
-     *
-     */
-    public function __construct() {
+	/**
+	 *
+	 */
+	public function __construct()
+	{
 
-    }
+	}
 
 }

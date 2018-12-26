@@ -5,32 +5,34 @@
  *
  * @author garethflowers
  */
-class CurlUtil {
+class CurlUtil
+{
 
-    /**
-     * execute a get using CURL and return the result
-     * @param string $url
-     * @return string
-     */
-    public static function get($url) {
-        $defaults = array(
-            CURLOPT_URL => $url,
-            CURLOPT_HEADER => 0,
-            CURLOPT_RETURNTRANSFER => TRUE,
-            CURLOPT_TIMEOUT => 4
-        );
+	/**
+	 * execute a get using CURL and return the result
+	 * @param string $url
+	 * @return string
+	 */
+	public static function get($url)
+	{
+		$defaults = array(
+			CURLOPT_URL => $url,
+			CURLOPT_HEADER => 0,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_TIMEOUT => 4
+		);
 
-        $ch = curl_init();
+		$ch = curl_init();
 
-        curl_setopt_array($ch, $defaults);
+		curl_setopt_array($ch, $defaults);
 
-        if (!$result = curl_exec($ch)) {
-            $result = NULL;
-        }
+		if (!$result = curl_exec($ch)) {
+			$result = null;
+		}
 
-        curl_close($ch);
+		curl_close($ch);
 
-        return $result;
-    }
+		return $result;
+	}
 
 }
