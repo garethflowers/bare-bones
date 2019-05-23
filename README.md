@@ -1,6 +1,6 @@
 # Bare Bones
 
-Bare Bones is an raw MVC framework for PHP.
+Bare Bones is a boilerplate MVC framework for PHP.
 
 ## Licence
 
